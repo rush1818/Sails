@@ -4,6 +4,8 @@
 
 Sails is a MVC framework inspired by Ruby on Rails. Sails utilizes `Rack` for the HTTP request-response cycle, and `SQLite3` for database storage.
 
+![sails](./images/sails.gif)
+
 ## Setup
 
 Clone or download this repo and run `bundle install` to setup dependencies.
