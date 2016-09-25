@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+require 'active_support/inflector'
+
+
+def model(name)
+  file_name = name.to_s.singularize.underscore + '_model.rb'
+  class_name = name.to_s.singularize.camelize
+
+  text = <<-txt
+  class #{class_name} < SailRecordBase
+
+  end
+
+  txt
+
+  File.open('./app/models/'+file_name, 'w') do |f|
+    f.write(text)
+    f.close
+  end
+
+end
+
+
+def controller(name)
+  file_name = name.to_s.pluralize.underscore + '_controller.rb'
+  class_name = name.to_s.pluralize.camelize + 'Controller'
+
+  text = <<-txt
+  class #{class_name} < SailsController
+
+  end
+
+  txt
+
+  File.open('./app/controllers/'+file_name, 'w') do |f|
+    f.write(text)
+    f.close
+  end
+
+end
+
+
+if __FILE__ == $PROGRAM_NAME
+  if ARGV[0] == 'model'
+    model(ARGV[1])
+  elsif ARGV[0] == 'controller'
+    controller(ARGV[1])
+  end
+end
