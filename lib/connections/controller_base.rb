@@ -3,6 +3,7 @@ require 'active_support/core_ext'
 require 'erb'
 require_relative './session'
 require_relative './flash'
+require 'byebug'
 
 class ControllerBase
   attr_reader :req, :res, :params
@@ -55,11 +56,18 @@ class ControllerBase
   end
 
   def invoke_action(name)
-
     if @@require_auth && @req.request_method != "GET"
       self.check_authenticity_token
     else
       self.form_authenticity_token
+    end
+
+    if @req.request_method == 'POST'  # handle delete requests
+      if @req.params['_method'] && @req.params['_method'] == 'delete'
+        self.send(:destroy)
+        render(:index) unless already_built_response?
+        return
+      end
     end
     self.send(name)
     render(name) unless already_built_response?

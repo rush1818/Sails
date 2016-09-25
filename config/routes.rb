@@ -8,8 +8,7 @@ ROUTER_CONFIG.draw do
   get Regexp.new("^/notes$"), NotesController, :index
   get Regexp.new("^/notes/new$"), NotesController, :new
   get Regexp.new("^/notes/(?<id>\\d+)$"), NotesController, :show
-  # delete Regexp.new("^/notes/delete$"), NotesController, :destroy
-  post Regexp.new("^/notes/(?<id>\\d+)/delete$"), NotesController, :destroy
+  delete Regexp.new("^/notes$"), NotesController, :destroy
   post Regexp.new("^/notes$"), NotesController, :create
 
   get Regexp.new("^/users/new$"), UsersController, :new
@@ -17,6 +16,6 @@ ROUTER_CONFIG.draw do
 
   get Regexp.new("^/session/new$"), SessionsController, :new
   post Regexp.new("^/session$"), SessionsController, :create
-  get Regexp.new("^/session$"), SessionsController, :destroy
+  delete Regexp.new("^/session$"), SessionsController, :destroy
 
 end
