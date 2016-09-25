@@ -20,8 +20,8 @@
 
 <h1>Notes</h1>
 <% @notes.each do |note| %>
-<pre>Note Title: <a href="/notes/<%=note.id%>"><%= note.title %></a></pre>
-<pre>Note Body:<%= note.body %></pre>
+<pre>Title: <a href="/notes/<%=note.id%>"><%= note.title %></a></pre>
+<pre>Body: <%= note.body %></pre>
 
 <form class="" action="/notes" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -33,5 +33,5 @@
 <% end %>
 <br>
 <br>
-<
+
 <a href="/notes/new">New note!</a>

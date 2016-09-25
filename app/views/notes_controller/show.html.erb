@@ -17,9 +17,14 @@
 
 
 <h1>Note</h1>
-
-<%= @note.title %>
-<%= @note.body %>
+<h2><%= @note.title %></h2>
+<pre><%= @note.body %></pre>
+<form class="" action="/notes" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="id" value="<%= @note.id %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" value="Delete Note">
+</form>
 
 <br>
 <br>
