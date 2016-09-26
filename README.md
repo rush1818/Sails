@@ -22,11 +22,11 @@ The code written for the demo app can be used as guidance to create your own app
 
 ### Model and Controller Generator
 
-A generator similar to the one provided by Rails is provided to handle creation of Model and Controller files. Run `ruby generate` in the terminal to generate models and controllers as follows:
-* `ruby generate model cats` will generate a Cat model. Following the conventions used in Rails, all model names are singularized using `ActiveSupport`
-* `ruby generate controller cats` will generate a CatsController. Following the convention used in Rails, all controller names are pluralized.
+A generator, similar to the one provided by Rails, is provided to handle creation of Model and Controller files. Run `ruby generate` in the terminal to generate models and controllers as follows:
+* `ruby generate model users` will generate a `User` model. Similar to conventions used in Rails, all model names are singularized using `ActiveSupport`
+* `ruby generate controller users` will generate a `UsersController`. Similar to conventions used in Rails, all controller names are pluralized
 
-Furthermore, Sails uses a folder structure similar to Rails. Models are created under `app/models/`, controllers under `app/controllers/`, and views under `app/views/(controller_name)/`
+Furthermore, Sails uses a folder structure similar to Rails. Models are created under the directory `app/models/`, controllers under the directory `app/controllers/`, and views under the directory `app/views/(controller_name)/`
 
 ### Database
 
